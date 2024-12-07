@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "./components/header";
 import Heropage from "./components/heropage";
 import Footer from "./components/footer";
+import Nikebar from "./components/nikebar";
+import Hellobar from "./components/Hellobar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,6 +34,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
+        <Nikebar/>
+        <Hellobar/>
         <Heropage />
         <Footer />
         {children}
