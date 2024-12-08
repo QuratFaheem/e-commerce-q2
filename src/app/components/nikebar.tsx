@@ -29,12 +29,35 @@ export default function Nikebar() {
         </li>
         <li className="text-lg text-black">SNKRS</li>
       </ul>
+      <div className='flex flex-row justify-around space-x-4'>
+  <Image 
+    src={'/s1.png'}
+    alt=''
+    width={200}
+    height={100}
+  />
+  <Image 
+    src={'/s2.png'}
+    alt=''
+    width={50}
+    height={50}
+  />
+  <Image 
+    src={'/s3.png'}
+    alt=''
+    width={50}
+    height={50}
+  />
+</div>
+
 
       {/* Mobile Menu Icon */}
       <div className="md:hidden">
         <button className="text-black text-lg">
           ☰ {/* Replace this with a proper hamburger menu icon if needed */}
         </button>
+
+        
       </div>
     </div>
   );

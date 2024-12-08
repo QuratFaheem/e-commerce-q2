@@ -1,9 +1,22 @@
-import Image from "next/image";
+
+import Header from "./components/header";
+import Heropage from "./components/heropage";
+import Footer from "./components/footer";
+import Nikebar from "./components/nikebar";
+import Hellobar from "./components/Hellobar";
+import FirstLook from "./components/FirstLook";
+import Flightbar from "./components/Flightbar";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      
+    <div>
+      <Header />
+        <Nikebar/>
+        <Hellobar/>
+        <FirstLook/>
+        <Heropage />
+        <Flightbar />
+        <Footer />
     </div>
   );
 }
