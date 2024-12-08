@@ -29,11 +29,11 @@ export default function Nikebar() {
         </li>
         <li className="text-lg text-black">SNKRS</li>
       </ul>
-      <div className='flex flex-row justify-around space-x-4'>
+      <div className='flex flex-row justify-around space-x-2'>
   <Image 
     src={'/s1.png'}
     alt=''
-    width={200}
+    width={100}
     height={100}
   />
   <Image 
