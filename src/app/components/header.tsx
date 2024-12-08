@@ -10,14 +10,13 @@ export default function Header() {
       <nav className="w-full flex justify-between items-center py-2 px-4 md:bg-gray-100 lg:bg-gray-100 text-sm">
         {/* Logo Section */}
         <div className="flex items-center">
-          <Image
+         <Link href='/page'> <Image
             src="/manlogo.png"
             alt="Logo"
             width={30} // Adjusted size for better visibility
             height={30}
-          />
-          {/* Adding a little space between the logo and the text */}
-          <span className="ml-2 text-lg text-black">News</span>
+          /></Link>
+  
         </div>
 
         <ul className="hidden md:flex items-center space-x-4">
@@ -28,20 +27,20 @@ export default function Header() {
           </li>
           <li>|</li>
           <li>
-            <Link href="/" className="text-lg text-black">
+            <Link href="/help" className="text-lg text-black">
               Help
             </Link>
           </li>
           <li>|</li>
           <li>
-            <Link href="/Signin" className="text-lg text-black">
+            <Link href="/RegistrationPage" className="text-lg text-black">
               Join Us
             </Link>
           </li>
           <li>|</li>
           <li>
-            <Link href="/RegistrationPage" className="text-lg text-black">
-              Sign Up
+            <Link href="/Signin" className="text-lg text-black">
+              Sign In
             </Link>
           </li>
         </ul>

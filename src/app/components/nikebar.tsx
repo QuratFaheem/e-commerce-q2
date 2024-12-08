@@ -1,5 +1,6 @@
 import React from 'react';
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Nikebar() {
   return (
@@ -42,12 +43,12 @@ export default function Nikebar() {
     width={50}
     height={50}
   />
-  <Image 
+  <Link href='/bag'><Image 
     src={'/s3.png'}
     alt=''
     width={50}
     height={50}
-  />
+  /></Link>
 </div>
 
 

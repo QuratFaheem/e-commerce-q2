@@ -15,7 +15,7 @@ export default function Flightbar(){
       </p>
     
       <div>
-        <b>The Essentials</b>
+        <b className="text-left">The Essentials</b>
         <div className="flex justify-between space-x-2 p-4 w-full">
           <div className="w-1/3 bg-gray-100 p-4 text-left">
             <Image src={'/c1.png'} alt="" width={400} height={500} />
