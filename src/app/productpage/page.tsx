@@ -3,7 +3,7 @@
 
 import Nikebar from "../components/nikebar"
 import Header from "../components/header"
-import Shoeview from "../components/shoeview"
+import Shoeview from "../shoeview/page"
 import Footer from "../components/footer"
 
 export default function Productpage2(){

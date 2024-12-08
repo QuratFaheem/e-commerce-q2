@@ -7,12 +7,12 @@ export default function Nikebar() {
     <div className="w-full flex justify-between items-center py-4 md:bg-white text-sm px-4">
       {/* Logo Section */}
       <div className="logo">
-        <Image
+       <Link href='/'> <Image
           src="/vector.png"
           alt="Logo"
           width={30} // Adjust size for better visibility on smaller screens
           height={30}
-        />
+        /></Link>
       </div>
 
       {/* Navigation List */}

@@ -2,6 +2,8 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 import Nikebar from "../components/nikebar"
 import Image from "next/image"
+import Link from "next/link"
+
 export default function Bag(){
     return(
 <div>
@@ -94,8 +96,9 @@ export default function Bag(){
 
                     <div className="mt-8 space-y-2">
                        
-                        <button type="button" className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-black hover:bg-gray-100 text-white border border-gray-300 rounded-full">Member Checkout </button>
-                    </div>
+                        <Link href='/order'><button type="button" className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-black hover:bg-gray-100 text-white border border-gray-300 rounded-full">Member Checkout </button>
+                        </Link>
+                        </div>
 
                 </div>
             </div>

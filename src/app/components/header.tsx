@@ -10,7 +10,7 @@ export default function Header() {
       <nav className="w-full flex justify-between items-center py-2 px-4 md:bg-gray-100 lg:bg-gray-100 text-sm">
         {/* Logo Section */}
         <div className="flex items-center">
-         <Link href='/page'> <Image
+         <Link href='/'> <Image
             src="/manlogo.png"
             alt="Logo"
             width={30} // Adjusted size for better visibility

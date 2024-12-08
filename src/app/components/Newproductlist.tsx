@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 export default function Newproductlist() {
     return (
       <div className="flex">
@@ -121,7 +122,7 @@ export default function Newproductlist() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <div className="bg-white shadow-md rounded-lg p-4">
-            <Image src={'/j1.png'} alt="Air Max 1" width={400} height={400}/>
+            <Link href='/shoeview'><Image src={'/j1.png'} alt="Air Max 1" width={400} height={400}/></Link>
             <h2 className="text-red-600">Just In</h2>
             <h1 className="text-black font-bold">Nike Air Force 1 Mid 07</h1>
             <h2 className="text-gray-600">Mens Shoes</h2>
@@ -131,7 +132,7 @@ export default function Newproductlist() {
   
             {/* Card 2 */}
             <div className="bg-white shadow-md rounded-lg p-4">
-            <Image src={'/j2.png'} alt="Air Max 1" width={400} height={400} />
+            <Link href='/shoeview'><Image src={'/j2.png'} alt="Air Max 1" width={400} height={400} /></Link>
             <h2 className="text-red-600">Just In</h2>
             <h1 className="text-black font-bold">Nike Air Force 1 Mid 07</h1>
             <h2 className="text-gray-600">Mens Shoes</h2>
@@ -140,7 +141,7 @@ export default function Newproductlist() {
   
             {/* Card 3 */}
             <div className="bg-white shadow-md rounded-lg p-4">
-            <Image src={'/j3.png'} alt="Air Max 1" width={400} height={400} />
+            <Link href='/shoeview'><Image src={'/j3.png'} alt="Air Max 1" width={400} height={400} /></Link>
             <h2 className="text-red-600">Just In</h2>
             <h1 className="text-black font-bold">Nike Air Force 1 Mid 07</h1>
             <h2 className="text-gray-600">Mens Shoes</h2>
@@ -148,7 +149,7 @@ export default function Newproductlist() {
             </div>
             {/* Card 2 */}
             <div className="bg-white shadow-md rounded-lg p-4">
-            <Image src={'/j4.png'} alt="Air Max 1" width={400} height={400} />
+            <Link href='/shoeview'><Image src={'/j4.png'} alt="Air Max 1" width={400} height={400} /></Link>
             <h2 className="text-red-600">Just In</h2>
             <h1 className="text-black font-bold">Nike Air Force 1 Mid 07</h1>
             <h2 className="text-gray-600">Mens Shoes</h2>
@@ -156,7 +157,7 @@ export default function Newproductlist() {
             </div>
             {/* Card 2 */}
             <div className="bg-white shadow-md rounded-lg p-4">
-            <Image src={'/j5.png'} alt="Air Max 1" width={400} height={400} />
+            <Link href='/shoeview'><Image src={'/j5.png'} alt="Air Max 1" width={400} height={400} /></Link>
             <h2 className="text-red-600">Just In</h2>
             <h1 className="text-black font-bold">Nike Air Force 1 Mid 07</h1>
             <h2 className="text-gray-600">Mens Shoes</h2>

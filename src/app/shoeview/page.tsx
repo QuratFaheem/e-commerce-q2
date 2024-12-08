@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Nikebar from "../components/nikebar";
 export default function Shoeview(){
     return(
 <div className="font-sans">
             <div className="p-4 max-w-6xl max-md:max-w-xl mx-auto">
+                <Nikebar/>
                 <div className="grid items-start grid-cols-1 md:grid-cols-2 gap-6">
 
                     <div className="w-full top-0 flex gap-3">
