@@ -1,7 +1,7 @@
-import Header from "./header"
-import Footer from "./footer"
-import Nikebar from "./nikebar"
-import RegisterForm from "./Registerform"
+import Header from "../components/header"
+import Footer from "../components/footer"
+import Nikebar from "../components/nikebar"
+import RegisterForm from "../components/Registerform"
 
 
 export default function RegisterPage(){

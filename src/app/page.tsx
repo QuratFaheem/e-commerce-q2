@@ -10,7 +10,7 @@ import Flightbar from "./components/Flightbar";
 export default function Home() {
   return (
     <div>
-      <Header />
+          <Header />
         <Nikebar/>
         <Hellobar/>
         <FirstLook/>

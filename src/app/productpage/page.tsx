@@ -1,10 +1,10 @@
 
 
 
-import Nikebar from "./nikebar"
-import Header from "./header"
-import Shoeview from "./shoeview"
-import Footer from "./footer"
+import Nikebar from "../components/nikebar"
+import Header from "../components/header"
+import Shoeview from "../components/shoeview"
+import Footer from "../components/footer"
 
 export default function Productpage2(){
     return(

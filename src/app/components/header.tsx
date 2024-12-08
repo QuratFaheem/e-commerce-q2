@@ -1,5 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from "next/image";
+
+
 
 export default function Header() {
   return (
@@ -19,27 +22,27 @@ export default function Header() {
 
         <ul className="hidden md:flex items-center space-x-4">
           <li>
-            <a href="#" className="text-lg text-black">
+            <Link href="/Newproductpage" className="text-lg text-black">
               Find a Store
-            </a>
+            </Link>
           </li>
           <li>|</li>
           <li>
-            <a href="#" className="text-lg text-black">
+            <Link href="/" className="text-lg text-black">
               Help
-            </a>
+            </Link>
           </li>
           <li>|</li>
           <li>
-            <a href="#" className="text-lg text-black">
+            <Link href="/Signin" className="text-lg text-black">
               Join Us
-            </a>
+            </Link>
           </li>
           <li>|</li>
           <li>
-            <a href="#" className="text-lg text-black">
+            <Link href="/RegistrationPage" className="text-lg text-black">
               Sign Up
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
