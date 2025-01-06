@@ -52,14 +52,14 @@ export default function Nikebar() {
 </div>
 
 
-      {/* Mobile Menu Icon */}
+      {/* Mobile Menu Icon 
       <div className="md:hidden">
         <button className="text-black text-lg">
-          ☰ {/* Replace this with a proper hamburger menu icon if needed */}
+          ☰ {/* Replace this with a proper hamburger menu icon if needed 
         </button>
 
         
-      </div>
+      </div>*/}
     </div>
   );
 }
