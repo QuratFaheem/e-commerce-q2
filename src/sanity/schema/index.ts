@@ -1,4 +1,4 @@
-import { ProductType } from "../schemaTypes/productType";
+import { productSchema } from "../schemaTypes/product";
 
 
-export const schemaTypes=[ProductType]
+export const schemaTypes=[productSchema]

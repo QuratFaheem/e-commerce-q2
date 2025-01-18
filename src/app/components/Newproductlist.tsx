@@ -1,13 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { GetAllProducts } from "@/sanity/sanity.query";
-import { urlFor } from "@/sanity/lib/image";
 
 export default async function NewProductList() {
   const productsData = await GetAllProducts();
   const products = productsData || [];
-  
+  console.log('Fetched products:', products);
 
+  interface ProductLog {
+    _id: string;
+    productName: string;
+    description?: string;
+    price: number;
+    category: string;
+    inventory: number;
+    productUrl: string;
+    imageUrl?: string;
+  }
 
   return (
     <div className="flex">
@@ -78,16 +87,27 @@ export default async function NewProductList() {
 
       {/* Product List */}
       <main className="flex-1 bg-gray-100 p-6">
-        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {products.length > 0 ? (
-            products.map((product:any) => (
-              <div key={product.id} className="bg-white shadow-md rounded-lg p-4">
+            products.map((product: ProductLog) => (
+              <div key={product._id} className="bg-white shadow-md rounded-lg p-4">
                 <Link href={`/${product.productUrl}`}>
-                <Image src={urlFor(product.image).url()} alt={product.name} width={400} height={400} />
+                  {product.imageUrl ? (
+                    <Image
+                      src={product.imageUrl}
+                      alt={product.productName}
+                      width={400}
+                      height={400}
+                      className="rounded"
+                    />
+                  ) : (
+                    <div className="bg-gray-200 w-full h-96 flex items-center justify-center rounded">
+                      <p>No Image Available</p>
+                    </div>
+                  )}
                 </Link>
                 <h2 className="text-red-600">Just In</h2>
-                <h1 className="text-black font-bold">{product.productname}</h1>
+                <h1 className="text-black font-bold">{product.productName}</h1>
                 <h2 className="text-gray-600">{product.category}</h2>
                 <h1 className="text-black font-bold">MPR: {product.price}</h1>
               </div>

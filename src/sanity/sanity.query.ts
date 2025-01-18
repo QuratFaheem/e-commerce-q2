@@ -4,12 +4,13 @@ import sanityClient from "./sanity.client";
 export const GetAllProducts = async () => {
   const query = `*[_type == "product"]{
     _id,
-    productname,
+    productName,
     description,
     price,
     category,
+    inventory,
     productUrl,
-    "image": image.asset->url,
+    "imageUrl": image.asset->url,
     "productUrl":slug.current,
   }`;
   const products = await sanityClient.fetch(query);
@@ -23,7 +24,7 @@ export const GetSingleProduct = async (slug: string | undefined) => {
 
   const query = `*[_type == "product" && slug.current == $slug][0]{
     _id,
-    productname,
+    productName,
     description,
     price,
     category,

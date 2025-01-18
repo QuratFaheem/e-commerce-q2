@@ -8,7 +8,7 @@ export default defineConfig({
     name: 'default',
     title: 'E-Commerce',
 
-    projectId: 'z17jp108',
+    projectId: 'lsmgqpme',
     dataset: 'production',
     basePath:"/studio",
 
