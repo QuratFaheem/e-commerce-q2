@@ -1,23 +1,67 @@
-import Image from "next/image";
 
-export default function Heropage() {
+
+import Image from "next/image";
+import { GetAllProducts } from "@/sanity/sanity.query";
+import Link from "next/link";
+import { GetMenShoes } from "@/sanity/sanity.query";
+
+
+export default async function NewProductList() {
+  const productsData = await GetAllProducts();
+  const products = productsData || [];
+  console.log('Fetched products:', products);
+
+  interface ProductLog {
+    _id: string;
+    productName: string;
+    description?: string;
+    price: number;
+    category: string;
+    inventory: number;
+    productUrl: string;
+    imageUrl?: string;
+  }
+
   return (
     <div className="mb-5">
       {/* Best of Air Max Section */}
       <b>Best of Air Max</b>
-      <div className="flex flex-wrap justify-between p-4 w-full space-x-3 md:space-x-0">
-        <div className="w-full sm:w-1/3 md:w-1/4 lg:w-1/5 min-w-[150px] bg-gray-100 p-4 text-center">
-          <Image src={'/sh1.png'} alt="Air Max 1" width={150} height={150} layout="responsive" />
-        </div>
 
-        <div className="w-full sm:w-1/3 md:w-1/4 lg:w-1/5 min-w-[150px] bg-gray-100 p-4 text-center">
-          <Image src={'/shh2.png'} alt="Air Max 2" width={150} height={150} layout="responsive" />
+ {/* Product List */}
+ <main className="flex-1 bg-gray-100 p-6">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {products.length > 0 ? (
+      products.slice(0, 3).map((product: ProductLog) => (
+        <div key={product._id} className="bg-white shadow-md rounded-lg p-4">
+          <Link href={`/${product.productUrl}`}>
+            {product.imageUrl ? (
+              <Image
+                src={product.imageUrl}
+                alt={product.productName}
+                width={400}
+                height={400}
+                className="rounded"
+              />
+            ) : (
+              <div className="bg-gray-200 w-full h-96 flex items-center justify-center rounded">
+                <p>No Image Available</p>
+              </div>
+            )}
+          </Link>
+
+          <div className="flex justify-between">
+            <h2 className="text-black font-bold">{product.productName}</h2>
+            <h2 className="text-black font-bold">MPR: {product.price}</h2>
+          </div>
         </div>
-        
-        <div className="w-full sm:w-1/3 md:w-1/4 lg:w-1/5 min-w-[150px] bg-gray-100 p-4 text-center">
-          <Image src={'/sh2.png'} alt="Air Max 3" width={150} height={150} layout="responsive" />
-        </div>
-      </div>
+      ))
+    ) : (
+      <p>No products found.</p>
+    )}
+  </div>
+</main>
+
+
 
       {/* Featured Section */}
       <div className="mt-6">
@@ -37,34 +81,38 @@ export default function Heropage() {
 
       {/* Gear Up Section */}
       <b>Gear Up</b>
-      <div className="flex flex-wrap justify-between space-x-2 md:space-x-4 p-4 w-full">
-        <div className="w-full sm:w-1/2 md:w-1/4 bg-gray-100 p-4 text-left">
-          <Image src={'/m1.png'} alt="Gear 1" width={200} height={200} layout="responsive" />
-          <p className="font-bold text-sm mt-2">Nike Dri-FIT ADV TechKnit Ultra $3 895</p>
-          <p className="text-gray-600">Men&apos;s Short-Sleeve</p>
-          <p className="text-gray-600">Running Top</p>
+      <main className="flex-1 bg-gray-100 p-6">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {products.length > 0 ? (
+      products.slice(0, 4).map((product: ProductLog) => (
+        <div key={product._id} className="bg-white shadow-md rounded-lg p-4">
+          <Link href={`/${product.productUrl}`}>
+            {product.imageUrl ? (
+              <Image
+                src={product.imageUrl}
+                alt={product.productName}
+                width={400}
+                height={400}
+                className="rounded"
+              />
+            ) : (
+              <div className="bg-gray-200 w-full h-96 flex items-center justify-center rounded">
+                <p>No Image Available</p>
+              </div>
+            )}
+          </Link>
+
+          <div className="flex justify-between">
+            <h2 className="text-black font-bold">{product.productName}</h2>
+            <h2 className="text-black font-bold">MPR: {product.price}</h2>
+          </div>
         </div>
-        
-        <div className="w-full sm:w-1/2 md:w-1/4 bg-gray-100 p-4 text-left">
-          <Image src={'/m2.png'} alt="Gear 2" width={200} height={200} layout="responsive" />
-          <p className="font-bold text-sm mt-2">Nike Dri-FIT Challenger $3 895</p>
-          <p className="text-gray-600">Men&apos;s 18cm (approx.) 2-in-1 Versatile Shorts</p>
-        </div>
-        
-        <div className="w-full sm:w-1/2 md:w-1/4 bg-gray-100 p-4 text-left">
-          <Image src={'/m3.png'} alt="Gear 3" width={200} height={200} layout="responsive" />
-          <p className="font-bold text-sm mt-2">Nike Dri-FIT ADV Run Division $3 895</p>
-          <p className="text-gray-600">Women&apos;s Long-Sleeve</p>
-          <p className="text-gray-600">Running Top</p>
-        </div>
-        
-        <div className="w-full sm:w-1/2 md:w-1/4 bg-gray-100 p-4 text-left">
-          <Image src={'/m4.png'} alt="Gear 4" width={200} height={200} layout="responsive" />
-          <p className="font-bold text-sm mt-2">Nike Fast $3 895</p>
-          <p className="text-gray-600">Women&apos;s Mid-Rise 7/8 Running</p>
-          <p className="text-gray-600">Leggings with Pockets</p>
-        </div>
-      </div>
+      ))
+    ) : (
+      <p>No products found.</p>
+    )}
+  </div>
+</main>
 
       {/* Don't Miss Section */}
       <div className="mt-6 bg-gray-100">

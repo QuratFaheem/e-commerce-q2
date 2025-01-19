@@ -37,3 +37,23 @@ export const GetSingleProduct = async (slug: string | undefined) => {
 };
 
 
+export const GetMenShoes = async (shoe: string | undefined) => {
+  if (!shoe) {
+    throw new Error("Slug is undefined or empty");
+  }
+
+  const query = `*[_type == "product" && category == ]{
+  _id,
+  productName,
+  description,
+  price,
+  inventory,
+  "imageUrl": image.asset->url,
+  "productUrl": slug.current
+}`;
+
+  const product = await sanityClient.fetch(query, { shoe }); // Pass slug as parameter
+  return product;
+};
+
+

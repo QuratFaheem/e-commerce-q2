@@ -5,7 +5,7 @@ const SanityClient:ClientConfig={
     projectId: "lsmgqpme",
     dataset: "production",
     apiVersion:"2025-01-18",
-    useCdn: true
+    useCdn: false
 }
 
 export default createClient(SanityClient);

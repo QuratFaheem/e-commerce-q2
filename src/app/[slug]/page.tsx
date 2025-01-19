@@ -5,6 +5,7 @@ import Image from "next/image";
 import Nikebar from "../components/nikebar";
 import { GetSingleProduct } from "@/sanity/sanity.query";
 
+
 export default function Shoeview({ params }: { params: { slug: string } }) {
   const [product, setProduct] = useState<any>(null); // Product state
   const [quantity, setQuantity] = useState(1); // Quantity state

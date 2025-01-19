@@ -1,7 +1,25 @@
 
 import Image from "next/image"
-export default function Flightbar(){
-    return(
+import { GetAllProducts } from "@/sanity/sanity.query";
+import Link from "next/link";
+
+
+export default async function NewProductList() {
+  const productsData = await GetAllProducts();
+  const products = productsData || [];
+  console.log('Fetched products:', products);
+
+  interface ProductLog {
+    _id: string;
+    productName: string;
+    description?: string;
+    price: number;
+    category: string;
+    inventory: number;
+    productUrl: string;
+    imageUrl?: string;
+  }   
+   return(
       <div className="justify-center w-full text-center mt-8 mb-10">
       <p className="justify-center font-extrabold text-4xl text-center">
         FLIGHT ESSENTIALS
@@ -17,15 +35,38 @@ export default function Flightbar(){
       <div>
         <b className="text-left">The Essentials</b>
         <div className="flex justify-between space-x-2 p-4 w-full">
-          <div className="w-1/3 bg-gray-100 p-4 text-left">
-            <Image src={'/c1.png'} alt="" width={400} height={500} />
+        <main className="flex-1 bg-gray-100 p-6">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {products.length > 0 ? (
+      products.slice(0, 3).map((product: ProductLog) => (
+        <div key={product._id} className="bg-white shadow-md rounded-lg p-4">
+          <Link href={`/${product.productUrl}`}>
+            {product.imageUrl ? (
+              <Image
+                src={product.imageUrl}
+                alt={product.productName}
+                width={400}
+                height={400}
+                className="rounded"
+              />
+            ) : (
+              <div className="bg-gray-200 w-full h-96 flex items-center justify-center rounded">
+                <p>No Image Available</p>
+              </div>
+            )}
+          </Link>
+
+          <div className="flex justify-between">
+            <h2 className="text-black font-bold">{product.productName}</h2>
+            <h2 className="text-black font-bold">MPR: {product.price}</h2>
           </div>
-          <div className="w-1/3 bg-gray-100 p-4 text-left">
-            <Image src={'/c2.png'} alt="" width={400} height={500} />
-          </div>
-          <div className="w-1/3 bg-gray-100 p-4 text-left">
-            <Image src={'/c3.png'} alt="" width={400} height={500} />
-          </div>
+        </div>
+      ))
+    ) : (
+      <p>No products found.</p>
+    )}
+  </div>
+</main>
         </div>
       </div>
     
