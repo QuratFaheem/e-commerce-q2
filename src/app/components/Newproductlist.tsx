@@ -2,11 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { GetAllProducts } from "@/sanity/sanity.query";
 
+// This is an async server-side function
 export default async function NewProductList() {
+  // Fetch products data asynchronously
   const productsData = await GetAllProducts();
   const products = productsData || [];
-  
 
+  // Define the interface for Product
   interface ProductLog {
     _id: string;
     productName: string;

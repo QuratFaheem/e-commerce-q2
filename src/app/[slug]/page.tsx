@@ -5,9 +5,18 @@ import Image from "next/image";
 import Nikebar from "../components/nikebar";
 import { GetSingleProduct } from "@/sanity/sanity.query";
 
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  category: string;
+  description: string;
+  pimage: string;
+  slug: string;
+}
 
 export default function Shoeview({ params }: { params: { slug: string } }) {
-  const [product, setProduct] = useState<any>(null); // Product state
+  const [product, setProduct] = useState<Product | null>(null); // Product state
   const [quantity, setQuantity] = useState(1); // Quantity state
   const [selectedSize, setSelectedSize] = useState<string>("M"); // Default size
 
@@ -123,8 +132,9 @@ export default function Shoeview({ params }: { params: { slug: string } }) {
                 className="flex items-center justify-center px-8 py-4 bg-black text-white border text-base rounded-full snipcart-add-item"
                 data-item-id={product.id}
                 data-item-price={product.price}
-                data-item-url={'/${product.slug}'}
-                data-item-image={product.image} >
+                data-item-url={`/${product.slug}`}
+                data-item-image={product.pimage}
+              >
                 Add to cart
               </button>
             </div>
