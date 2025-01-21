@@ -5,7 +5,7 @@ import { GetAllProducts } from "@/sanity/sanity.query";
 export default async function NewProductList() {
   const productsData = await GetAllProducts();
   const products = productsData || [];
-  console.log('Fetched products:', products);
+  
 
   interface ProductLog {
     _id: string;

@@ -8,6 +8,8 @@ import { GetMenShoes } from "@/sanity/sanity.query";
 
 export default async function NewProductList() {
   const productsData = await GetAllProducts();
+  const menproduct= await GetMenShoes();
+  const Mproduct =menproduct || [];
   const products = productsData || [];
   console.log('Fetched products:', products);
 
@@ -30,14 +32,14 @@ export default async function NewProductList() {
  {/* Product List */}
  <main className="flex-1 bg-gray-100 p-6">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-    {products.length > 0 ? (
-      products.slice(0, 3).map((product: ProductLog) => (
-        <div key={product._id} className="bg-white shadow-md rounded-lg p-4">
-          <Link href={`/${product.productUrl}`}>
-            {product.imageUrl ? (
+    {Mproduct.length > 0 ? (
+      Mproduct.slice(0, 3).map((menproduct: ProductLog) => (
+        <div key={menproduct._id} className="bg-white shadow-md rounded-lg p-4">
+          <Link href={`/${menproduct.productUrl}`}>
+            {menproduct.imageUrl ? (
               <Image
-                src={product.imageUrl}
-                alt={product.productName}
+                src={menproduct.imageUrl}
+                alt={menproduct.productName}
                 width={400}
                 height={400}
                 className="rounded"
@@ -50,8 +52,8 @@ export default async function NewProductList() {
           </Link>
 
           <div className="flex justify-between">
-            <h2 className="text-black font-bold">{product.productName}</h2>
-            <h2 className="text-black font-bold">MPR: {product.price}</h2>
+            <h2 className="text-black font-bold">{menproduct.productName}</h2>
+            <h2 className="text-black font-bold">MPR: {menproduct.price}</h2>
           </div>
         </div>
       ))

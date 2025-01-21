@@ -1,13 +1,13 @@
 
 import Image from "next/image"
-import { GetAllProducts } from "@/sanity/sanity.query";
+import { GetEssentials } from "@/sanity/sanity.query";
 import Link from "next/link";
 
 
 export default async function NewProductList() {
-  const productsData = await GetAllProducts();
-  const products = productsData || [];
-  console.log('Fetched products:', products);
+  const productData = await GetEssentials();
+  const products = productData || [];
+  console.log('Essentials products:', products);
 
   interface ProductLog {
     _id: string;
@@ -38,7 +38,7 @@ export default async function NewProductList() {
         <main className="flex-1 bg-gray-100 p-6">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
     {products.length > 0 ? (
-      products.slice(0, 3).map((product: ProductLog) => (
+      products.map((product: ProductLog) => (
         <div key={product._id} className="bg-white shadow-md rounded-lg p-4">
           <Link href={`/${product.productUrl}`}>
             {product.imageUrl ? (
@@ -58,12 +58,12 @@ export default async function NewProductList() {
 
           <div className="flex justify-between">
             <h2 className="text-black font-bold">{product.productName}</h2>
-            <h2 className="text-black font-bold">MPR: {product.price}</h2>
+            <h2 className="text-black font-bold">$: {product.price}</h2>
           </div>
         </div>
       ))
     ) : (
-      <p>No products found.</p>
+      <p>No products foundd.</p>
     )}
   </div>
 </main>
