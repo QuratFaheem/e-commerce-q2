@@ -14,7 +14,7 @@ export default async function NewProductList() {
   interface ProductLog {
     _id: string;
     productName: string;
-    description?: string;
+    description: string;
     price: number;
     category: string;
     inventory: number;
