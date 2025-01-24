@@ -75,7 +75,7 @@ export default function Shoeview({ params }: { params: { slug: string } }) {
 
             <div className="mt-8">
               <h3 className="text-gray-800 text-4xl max-sm:text-3xl font-bold">
-                PKR. {totalPrice}
+                $. {totalPrice}
               </h3>
             </div>
 
