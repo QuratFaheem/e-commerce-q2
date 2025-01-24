@@ -1,4 +1,5 @@
 
+import { groq } from "next-sanity";
 import sanityClient from "./sanity.client";
 
 export const GetAllProducts = async () => {
@@ -38,7 +39,7 @@ export const GetSingleProduct = async (slug: string | undefined) => {
 
 
 export const GetMenShoes = async () => {
-  const query = `*[_type == "product" && category == "Men's Shoes"]{
+  const query = groq`*[_type == "product" && category == "Men's Shoes"]{
   _id,
   productName,
   description,
@@ -53,7 +54,7 @@ export const GetMenShoes = async () => {
 };
 
 export const GetEssentials = async () => {
-  const query = `*[_type == "product" && category == "Essentials"]{
+  const query = groq`*[_type == "product" && category == "Essentials"]{
   _id,
   productName,
   description,

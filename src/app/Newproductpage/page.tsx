@@ -22,6 +22,7 @@ export default async function Newproductpage(){
         productUrl: string;
         imageUrl?: string;
       }
+      console.log('sdjhfsjdg',products)
 return(
     <div>
         <Header/>
